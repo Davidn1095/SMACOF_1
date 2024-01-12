@@ -1,1 +1,58 @@
 # SMACOF_1
+
+# Perform multidimensional scaling on 'bread' dataset without constraints
+# The scaling is done in two dimensions
+res = smacofIndDiff(bread, ndim=2)
+
+# Display the scaling result
+res
+
+# Provide a summary of the scaling result
+summary(res)
+
+# Plot the scaling result with equal aspect ratio
+# Title: "smacofIndDiff(bread,ndim=2)"
+plot(res, main="smacofIndDiff(bread,ndim=2)", asp=1)
+
+# Access and display the component 'cweight' from the result
+res$cweight
+
+# Access and display the confidence intervals or regions from the result
+res$conf
+
+# Access and display the geometric space details of the scaling solution
+res$gspace
+
+# Open a new graphics device/window for plotting
+dev.new()
+
+# Plot the residual plot of the scaling solution without constraints
+# Title: "Residuos sin restricciones"
+plot(res, plot.type="resplot", main="Residuos sin restricciones", asp=1)
+
+# Perform multidimensional scaling on 'bread' dataset with identity constraint
+# The scaling is also done in two dimensions
+res.identidad = smacofIndDiff(bread, constraint="identity", ndim=2)
+
+# Display the scaling result with identity constraint
+res.identidad
+
+# Provide a summary of the scaling result with identity constraint
+summary(res.identidad)
+
+# Plot the scaling result with identity constraint and equal aspect ratio
+# Title: "smacofIndDiff(bread,constraint=identity,ndim=2)"
+plot(res.identidad, main="smacofIndDiff(bread,constraint=identity,ndim=2)", asp=1)
+
+# Open a new graphics device/window for plotting
+dev.new()
+
+# Access and display the components 'cweight', 'conf', and 'gspace' 
+# from the scaling result with identity constraint
+res.identidad$cweight
+res.identidad$conf
+res.identidad$gspace
+
+# Plot the residual plot of the scaling solution with identity constraint
+# Title: "Residuos. Restricción identidad"
+plot(res.identidad, plot.type="resplot", main="Residuos. Restricción identidad", asp=1)
